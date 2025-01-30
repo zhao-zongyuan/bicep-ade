@@ -1,0 +1,1 @@
+# iac-bicep-mg-tst
