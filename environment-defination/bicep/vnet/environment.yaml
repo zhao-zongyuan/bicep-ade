@@ -1,0 +1,10 @@
+name: VNet
+summary: This is a deployment of a Azure VNet using Bicep.
+description: Deploys a VNet
+templatePath: main.bicep
+parameters:
+- id: "virtualNetworkName"
+  name: "virtualNetworkNameParameter"
+  description: "Vnet name"
+  type: "string"
+runner: Bicep
