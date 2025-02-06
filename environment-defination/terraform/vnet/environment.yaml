@@ -1,0 +1,24 @@
+name: VNet-TF
+summary: This is a deployment of a Azure VNet using TF.
+description: Deploys a VNet
+templatePath: main.tf
+parameters:
+- id: "name"
+  name: "virtualNetworkNameParameter"
+  description: "Vnet name"
+  type: "string"
+  default: "vnet-tst"
+-id: "resource_group"
+  name: "resourceGroup"
+  description: "Resource Group"
+  type: "object"
+  default: 
+    name: "[resourceGroup().name]"
+    location: "[resourceGroup().location]"
+-id "address_space"
+  name: "addressSpace"
+  description: "Address Space"
+  type: "array"
+  default: 
+    - "
+runner: Terraform

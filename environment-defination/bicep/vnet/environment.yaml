@@ -7,4 +7,5 @@ parameters:
   name: "virtualNetworkNameParameter"
   description: "Vnet name"
   type: "string"
+  default: "vnet-tst"
 runner: Bicep
