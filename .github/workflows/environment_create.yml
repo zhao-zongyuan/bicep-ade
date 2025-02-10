@@ -6,6 +6,7 @@ permissions:
 
 on:
   create:
+  workflow_dispatch:
   pull_request:
     types: [opened, reopened]
 
@@ -45,7 +46,7 @@ jobs:
       - name: Create Environment
         run: |
           az devcenter dev environment create \
-              --name ${{ env.ENVIRONMENT_NAME }} --environment-type ${{ env.ENVIRONMENT_TYPE }} \
+              --name ${{ env.ENVIRONMENT_NAME }} --environment-type 'dev-env' \
               --dev-center ${{ vars.AZURE_DEVCENTER }} --project ${{ vars.AZURE_PROJECT }} \
               --catalog-name ${{ vars.AZURE_CATALOG }} --environment-definition-name ${{ vars.AZURE_CATALOG_ITEM }} \
               --parameters '{ "principalId": "${{ secrets.AZURE_CLIENT_ID }}" }' --only-show-errors
