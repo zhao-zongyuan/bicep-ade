@@ -19,21 +19,20 @@ jobs:
         name: Get Configuration
         uses: ./.github/workflows/environment_config.yml
 
-        create_env:
-          if: github.event_name == 'pull_request' || github.event.ref_type == 'branch'
-          name: Create ${{ needs.config.outputs.type }} Environment
-          runs-on: ubuntu-latest
-      
-    
-    needs: config
-    environment: ${{ needs.config.outputs.type }}
+    create_env:
+        if: github.event_name == 'pull_request' || github.event.ref_type == 'branch'
+        name: Create ${{ needs.config.outputs.type }} Environment
+        runs-on: ubuntu-latest
 
-    env:
+        needs: config
+        environment: ${{ needs.config.outputs.type }}
+
+        env:
         ENVIRONMENT_NAME: ${{ needs.config.outputs.name }}
         ENVIRONMENT_TYPE: ${{ needs.config.outputs.type }}
 
-    steps:
-      - uses: actions/checkout@v3
+        steps:
+          - uses: actions/checkout@v3
 
       - name: Install DevCenter CLI Extension
         run: az extension add --name devcenter --upgrade
