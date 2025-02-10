@@ -1,5 +1,0 @@
-name: VNet-TF-simple
-summary: This is a deployment of a Azure VNet using TF.
-description: Deploys a VNet
-templatePath: main.tf
-runner: Terraform
