@@ -1,4 +1,4 @@
-
+@description('This is a Bicep file.')
 param principalId string
 
 @description('This is the built-in Contributor role. See https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor')
