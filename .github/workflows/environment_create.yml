@@ -8,7 +8,7 @@ on:
   create:
   workflow_dispatch:
   pull_request:
-    types: [opened, reopened]
+    branches: [main]
 
 concurrency: ${{ github.event.number || github.ref_name }}
 
