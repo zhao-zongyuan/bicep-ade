@@ -1,5 +1,3 @@
-# https://github.com/Azure-Samples/deployment-environments-cicd-tutorial/blob/main/.github/workflows/environment_create.yml
-
 name: Create Environment
 
 permissions:
@@ -14,22 +12,22 @@ on:
 concurrency: ${{ github.event.number || github.ref_name }}
 
 jobs:
-    config:
-        if: github.event_name == 'pull_request' || github.event.ref_type == 'branch'
-        name: Get Configuration
-        uses: ./.github/workflows/environment_config.yml
-    
-    create_env:
+  config:
+    if: github.event_name == 'pull_request' || github.event.ref_type == 'branch'
+    name: Get Configuration
+    uses: ./.github/workflows/environment_config.yml
+
+  create_env:
     if: github.event_name == 'pull_request' || github.event.ref_type == 'branch'
     name: Create ${{ needs.config.outputs.type }} Environment
     runs-on: ubuntu-latest
-    
+
     needs: config
     environment: ${{ needs.config.outputs.type }}
 
     env:
-        ENVIRONMENT_NAME: ${{ needs.config.outputs.name }}
-        ENVIRONMENT_TYPE: ${{ needs.config.outputs.type }}
+      ENVIRONMENT_NAME: ${{ needs.config.outputs.name }}
+      ENVIRONMENT_TYPE: ${{ needs.config.outputs.type }}
 
     steps:
       - uses: actions/checkout@v3
@@ -50,7 +48,7 @@ jobs:
               --name ${{ env.ENVIRONMENT_NAME }} --environment-type ${{ env.ENVIRONMENT_TYPE }} \
               --dev-center ${{ vars.AZURE_DEVCENTER }} --project ${{ vars.AZURE_PROJECT }} \
               --catalog-name ${{ vars.AZURE_CATALOG }} --environment-definition-name ${{ vars.AZURE_CATALOG_ITEM }} \
-              --parameters '{ "name": "${{ env.ENVIRONMENT_NAME }}" }' --only-show-errors
+              --parameters '{ "principalId": "${{ secrets.AZURE_CLIENT_ID }}" }' --only-show-errors
 
       - name: Get Resource Group
         shell: bash {0}
