@@ -1,8 +1,8 @@
 
 param utcvalue string = utcNow('d')
 
-resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
-  name: 'CreationDateTag'
+resource creationTimeTags 'Microsoft.Resources/tags@2021-04-01' = {
+  name: 'default'
   properties: {
     tags: {
       creationTime: utcvalue
