@@ -1,6 +1,6 @@
-name: Sandbox-Empty Resource Group
+name: Sandbox-Empty-Resource-Group
 version: 1.0.0
-summary: Empty sandbox environment
+summary: Empty sandbox environment with owner permission
 description: Deploys an empty sandbox environment
 runner: Bicep
 templatePath: main.bicep
