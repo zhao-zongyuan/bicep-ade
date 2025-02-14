@@ -1,10 +1,7 @@
-name: Sandbox
+name: Sandbox-Empty Resource Group
 version: 1.0.0
 summary: Empty sandbox environment
 description: Deploys an empty sandbox environment
 runner: Bicep
 templatePath: main.bicep
 
-parameters:
-  - name: principalId
-    type: string
