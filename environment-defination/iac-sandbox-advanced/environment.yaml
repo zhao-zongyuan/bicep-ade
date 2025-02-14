@@ -4,3 +4,10 @@ summary: Advanced sandbox environment with owner permission
 description: Deploys an advanced sandbox environment
 runner: Bicep
 templatePath: main.bicep
+
+parameters:
+  - id: "vNetDeployment"
+    name: "vNetDeployment"
+    description: "If a vNet should be deployed"
+    type: "bool"
+    default: "false"
