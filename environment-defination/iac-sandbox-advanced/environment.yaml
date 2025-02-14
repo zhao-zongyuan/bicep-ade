@@ -9,5 +9,5 @@ parameters:
   - id: "vNetDeployment"
     name: "vNetDeployment"
     description: "If a vNet should be deployed"
-    type: "bool"
+    type: "boolean"
     default: "false"
