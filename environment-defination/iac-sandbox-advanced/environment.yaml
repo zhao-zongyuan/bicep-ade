@@ -1,0 +1,6 @@
+name: Sandbox-Advanced-Resource-Group
+version: 1.0.0
+summary: Advanced sandbox environment with owner permission
+description: Deploys an advanced sandbox environment
+runner: Bicep
+templatePath: main.bicep
