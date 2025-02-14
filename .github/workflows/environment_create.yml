@@ -6,9 +6,8 @@ permissions:
 
 on:
   create:
-  workflow_dispatch:
-  pull_request:
-    branches: [main]
+#  workflow_dispatch:
+#  pull_request:
 
 concurrency: ${{ github.event.number || github.ref_name }}
 

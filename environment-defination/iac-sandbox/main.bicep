@@ -1,4 +1,3 @@
-
 param principalId string
 
 @description('This is the built-in Contributor role. See https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor')
@@ -16,4 +15,6 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   }
 }
 
+
 output resourceGroupName string = resourceGroup().name
+output roleAssignmentId string = roleAssignment.id
