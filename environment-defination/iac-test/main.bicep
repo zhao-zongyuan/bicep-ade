@@ -1,12 +1,14 @@
+// deployments/dev/main.bicep
+param location string = 'australiaeast' // Default location
 
-targetScope = 'subscription'
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  
-  name: 'rg-default'
-  location: 'eastus'
-  tags: {
-    environment: 'dev'
+// Call the network module
+module networkModule '../../modules/virtual-network/main.bicep' = {
+  name: 'network-deployment' // Give the deployment a name
+  params: {
+    location: location
+    addressPrefix: '10.10.0.0/16' // Override parameter if needed
+    subnetPrefix: '10.10.1.0/24'
+    subnetName: 'internal'
   }
 }
-
-output resourceGroupName string = resourceGroup.name
+output resourceGroupName string = resourceGroup().name

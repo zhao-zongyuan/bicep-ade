@@ -6,5 +6,7 @@ az deployment group create --resource-group 'bicep-iac-tag-2' `
 
 
 
-
+az deployment group create --resource-group 'bicep-iac-tag-2' `
+--template-file 'environment-defination/iac-test/main.bicep' `
+--parameters vNetDeployment = $true
 
