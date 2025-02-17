@@ -1,0 +1,7 @@
+name: Module-Environment-DONOTUSE
+version: 1.0.0
+summary: Terraform Empty sandbox environment with owner permission
+description: Deploys an empty sandbox environment
+runner: bicep
+templatePath: main.bicep
+
